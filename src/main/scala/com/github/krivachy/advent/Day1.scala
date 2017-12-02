@@ -16,8 +16,8 @@ object Day1 extends App {
           else sum
         case (sum, _) =>
           // just in case any other pattern shows up, which should be impossible due to sliding(2).
-          // Not fully typesafe, ideally i'd like a sliding2() that would return a tuple to safely
-          // pattern math on.
+          // Not fully typesafe, ideally i'd like a sliding2 method that would return a tuple to
+          // safely pattern match on.
           sum
       }
   }
