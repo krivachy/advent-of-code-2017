@@ -1,4 +1,4 @@
-package com.github.krivachy.advent.day1
+package com.github.krivachy.advent
 
 import scala.io.Source
 
@@ -15,11 +15,13 @@ object Day1 extends App {
           if (a == b) sum + a.asDigit
           else sum
         case (sum, _) =>
-          // just in case any other pattern shows up, which should be impossible due to sliding(2)
+          // just in case any other pattern shows up, which should be impossible due to sliding(2).
+          // Not fully typesafe, ideally i'd like a sliding2() that would return a tuple to safely
+          // pattern math on.
           sum
       }
   }
 
-  val inputFile = Source.fromResource("day1/input.txt").getLines.mkString("\n").trim
+  val inputFile = Source.fromResource("day1.txt").getLines.mkString("\n").trim
   println(solution(inputFile))
 }

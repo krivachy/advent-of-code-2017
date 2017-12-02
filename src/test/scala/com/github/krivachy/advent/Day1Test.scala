@@ -1,4 +1,4 @@
-package com.github.krivachy.advent.day1
+package com.github.krivachy.advent
 
 import org.scalatest.{FlatSpec, Matchers}
 
