@@ -4,7 +4,7 @@ import scala.io.Source
 
 object Day1 extends App {
 
-  def solution(inputList: List[Char]) = {
+  def solutionPart1(inputList: List[Char]) = {
     val wrapAroundInput = inputList ++ inputList.headOption
 
     wrapAroundInput
@@ -21,7 +21,7 @@ object Day1 extends App {
       }
   }
 
-  def solution2(input: List[Char]) = {
+  def solutionPart2(input: List[Char]) = {
     val half = input.size / 2
     val rotatedInput = input.takeRight(half) ++ input.take(half)
     input.zip(rotatedInput).foldLeft(0){
@@ -30,6 +30,6 @@ object Day1 extends App {
   }
 
   val inputFile = Source.fromResource("day1.txt").getLines.mkString("\n").trim.toList
-  println(solution(inputFile))
-  println(solution2(inputFile))
+  println(solutionPart1(inputFile))
+  println(solutionPart2(inputFile))
 }
