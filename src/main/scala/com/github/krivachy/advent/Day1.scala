@@ -4,8 +4,7 @@ import scala.io.Source
 
 object Day1 extends App {
 
-  def solution(input: String) = {
-    val inputList = input.toList
+  def solution(inputList: List[Char]) = {
     val wrapAroundInput = inputList ++ inputList.headOption
 
     wrapAroundInput
@@ -22,6 +21,15 @@ object Day1 extends App {
       }
   }
 
-  val inputFile = Source.fromResource("day1.txt").getLines.mkString("\n").trim
+  def solution2(input: List[Char]) = {
+    val half = input.size / 2
+    val rotatedInput = input.takeRight(half) ++ input.take(half)
+    input.zip(rotatedInput).foldLeft(0){
+      case (sum, (a, b)) => if (a == b) sum + a.asDigit else sum
+    }
+  }
+
+  val inputFile = Source.fromResource("day1.txt").getLines.mkString("\n").trim.toList
   println(solution(inputFile))
+  println(solution2(inputFile))
 }
