@@ -12,12 +12,13 @@ object Day4 extends App {
 
   def solutionPart2(passphrases: Seq[Seq[String]]): Int = {
     passphrases.map { passphrase =>
-      passphrase.foldLeft((true, Set.empty[Map[Char, Int]])) {
+      val (isValid, _) = passphrase.foldLeft((true, Set.empty[Map[Char, Int]])) {
         case ((valid, anagramMap), word) =>
           val letterOccurrences = word.toCharArray.groupBy(identity).mapValues(_.length)
           if (anagramMap.contains(letterOccurrences)) (false, anagramMap + letterOccurrences)
           else (valid, anagramMap + letterOccurrences)
-      }._1
+      }
+      isValid
     }.count(identity)
   }
 
