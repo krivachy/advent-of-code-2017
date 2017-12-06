@@ -39,15 +39,10 @@ object Day6 extends App {
 
   @tailrec
   private def redistribute(memory: Vector[Int], blocks: Int, index: Int): Vector[Int] = {
-    if (blocks == 0) {
-      memory
-    } else {
+    if (blocks == 0) memory
+    else {
       val newIndex = (index + 1) % memory.length
-      redistribute(
-        memory.updated(newIndex, memory(newIndex) + 1),
-        blocks - 1,
-        newIndex
-      )
+      redistribute(memory.updated(newIndex, memory(newIndex) + 1), blocks - 1, newIndex)
     }
   }
 
