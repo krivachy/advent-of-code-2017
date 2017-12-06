@@ -1,5 +1,6 @@
 package com.github.krivachy.advent
 
+import scala.annotation.tailrec
 import scala.io.Source
 
 /**
@@ -41,6 +42,7 @@ import scala.io.Source
 object Day5 extends App {
 
   def solutionPart1(instructions: Seq[Int]): Int = {
+    @tailrec
     def executeInstruction(steps: Int, index: Int, currentInstructions: Vector[Int]): Int = {
       val nextIndex = index + currentInstructions(index)
       if (nextIndex >= currentInstructions.length || nextIndex < 0) steps + 1
@@ -54,6 +56,7 @@ object Day5 extends App {
   }
 
   def solutionPart2(instructions: Seq[Int]): Int = {
+    @tailrec
     def executeInstruction(steps: Int, index: Int, currentInstructions: Vector[Int]): Int = {
       val nextIndex = index + currentInstructions(index)
       if (nextIndex >= currentInstructions.length || nextIndex < 0) steps + 1
